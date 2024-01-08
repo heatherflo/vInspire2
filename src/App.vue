@@ -1,42 +1,47 @@
 
 
 <template>
-  <section class="row" id="app">
+  <div class="container-fluid bg-image" :style="{ backgroundImage: `url(${state.image})` }">
+    <main>
 
-    <router-view />
-    <!-- <h1>Welcome to the vInspire</h1>
-      {{ weather }}
-      <button @click="changeWeather">weather</button> -->
+    </main>
+    <section class="row">
 
-  </section>
+      <router-view />
+      <!-- HomePage -->
+
+    </section>
+
+
+  </div>
 </template>
 
-<!-- <script>
-import { computed, onMounted } from 'vue';
-import { weatherService } from './services/WeatherService';
+<script>
+import { computed, onMounted, reactive } from 'vue';
 import { AppState } from './AppState';
+import { imagesService } from './services/ImagesService';
 
 export default {
   setup() {
     const state = reactive({
-      weather: computed(() => AppState.weather)
-    })
-    state,
-      onMounted(() => {
-        weatherService.getWeather()
-      })
-
+      image: computed(() => AppState.image)
+    });
+    onMounted(() => {
+      imagesService.getImages()
+    });
     return {
-      changeWeather() {
-        console.log('clicked')
-      }
+      state
+
     }
   }
 }
-</script> -->
+</script>
 
-<style>
-#app {
-  text-align: center;
+<style lang="scss">
+@import './assets/scss/main.scss';
+
+.bg-image {
+  min-height: 100vh;
+  background-size: cover;
 }
 </style>
