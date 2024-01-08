@@ -9,5 +9,5 @@ export const AppState = reactive({
   /** @type {Image} */
   image: null,
   /**@type {Quote} */
-  quote: []
+  quote: null
 })

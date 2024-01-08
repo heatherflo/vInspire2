@@ -1,6 +1,7 @@
 <template>
   <div class="quote">
-    <p>{{ quotesProp }}</p>
+    <p class="mt-3 text-light">{{ quotesProp.content }}</p>
+    <p class="text-light">{{ quotesProp.author }}</p>
 
   </div>
 </template>
@@ -10,6 +11,7 @@
 import { AppState } from '../AppState';
 import { computed, ref, onMounted } from 'vue';
 import { quotesService } from '../services/QuotesService'
+
 export default {
   setup() {
     onMounted(() => {

@@ -1,4 +1,6 @@
 import { api } from "../services/AxiosService"
+import { AppState } from "../AppState"
+import { Quote } from "../models/Quote"
 
 
 class QuotesService {
@@ -7,7 +9,7 @@ class QuotesService {
     console.log('getting quotes')
     const response = await api.get('api/quotes')
     console.log('new quote', response.data)
-    AppState.quotes = new Quote(response.data)
+    AppState.quote = new Quote(response.data)
   }
 
 }
